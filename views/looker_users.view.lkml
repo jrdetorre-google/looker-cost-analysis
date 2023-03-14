@@ -4,7 +4,7 @@ view: looker_users {
   dimension: user_id {
     primary_key: yes
     type: number
-    sql: ${TABLE}.ID ;;
+    sql: ${TABLE}.User_ID ;;
   }
 
   dimension: user_name {
@@ -14,7 +14,7 @@ view: looker_users {
 
   dimension: user_email {
     type: string
-    sql: ${TABLE}.Email ;;
+    sql: ${TABLE}.User_Email ;;
   }
 
   measure: number_of_users {
