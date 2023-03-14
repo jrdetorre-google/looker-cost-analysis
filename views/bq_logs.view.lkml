@@ -77,7 +77,7 @@ view: bq_logs {
   measure: total_estimated_on_demand_cost {
     label: "Total Estimated On-Demand Cost"
     type: sum
-    value_format: "$0.##"
+    value_format: "$0.000000000"
     sql: ${estimated_on_demand_cost} ;;
     drill_fields: [project_id, looker_user_id, looker_users.user_name, looker_users.user_email, query_completion_date, estimated_on_demand_cost]
   }
