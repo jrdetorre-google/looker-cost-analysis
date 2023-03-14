@@ -59,7 +59,7 @@ view: bq_logs {
     label: "Estimated On-Demand Cost"
     description: "Extrapolates from estimated billed bytes to cost in USD for on-demand pricing. Most statements are calculated at $5 USD / TiB, and BQML model creation is calculated at $250 USD / TiB"
     type: number
-    value_format: "$0.#####"
+    value_format: "$0.00000000000000"
     sql: IF(${billed_bytes} IS NULL, 0.00,
                                      ${billed_bytes} / POW(2, 40)  *
                                       CASE
