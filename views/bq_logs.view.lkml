@@ -11,7 +11,7 @@ view: bq_logs {
                     protopayload_auditlog.servicedata_v1_bigquery.jobCompletedEvent.job.jobStatistics.endTime as query_completion,
                     protopayload_auditlog.servicedata_v1_bigquery.jobCompletedEvent.job.jobConfiguration.query.statementType as statement_type,
                     ROW_NUMBER() OVER(PARTITION BY resource.labels. project_id,timestamp, insertId ORDER BY 1, 2, 3) rnm
-             FROM `jrdetorre-bq-demo.looker_logs.cloudaudit_googleapis_com_data_access_20230314`)
+             FROM `jrdetorre-bq-demo.looker_logs.cloudaudit_googleapis_com_data_access_*`)
           WHERE rnm=1) ;;
     partition_keys: ["timestamp"]
     interval_trigger: "12 hours"
