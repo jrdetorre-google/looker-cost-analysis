@@ -13,8 +13,8 @@ view: bq_logs {
                     ROW_NUMBER() OVER(PARTITION BY resource.labels. project_id,timestamp, insertId ORDER BY 1, 2, 3) rnm
              FROM `jrdetorre-bq-demo.looker_logs.cloudaudit_googleapis_com_data_access`)
           WHERE rnm=1) ;;
-    partition_keys: ["timestamp"]
-    interval_trigger: "10 minutes"
+#    partition_keys: ["timestamp"]
+#    interval_trigger: "10 minutes"
   }
 
   dimension: pk {
