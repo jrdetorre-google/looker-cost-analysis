@@ -14,7 +14,7 @@ view: bq_logs {
              FROM `jrdetorre-bq-demo.looker_logs.cloudaudit_googleapis_com_data_access`)
           WHERE rnm=1) ;;
     partition_keys: ["timestamp"]
-    interval_trigger: "1 hours"
+    interval_trigger: "1 minute"
   }
 
   dimension: pk {
