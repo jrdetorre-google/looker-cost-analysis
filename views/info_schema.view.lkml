@@ -39,10 +39,10 @@ dimension: pk {
     sql: CAST(value AS INT64) ;;
   }
 
-  dimension: total_billed_bytes {
+  dimension: total_bytes_billed {
     hidden: yes # Use measure instead
     type: number
-    sql: ${TABLE}.total_billed_bytes ;;
+    sql: ${TABLE}.total_bytes_billed ;;
   }
 
 
@@ -58,8 +58,8 @@ dimension: pk {
     description: "Extrapolates from estimated billed bytes to cost in USD for on-demand pricing. Most statements are calculated at $5 USD / TiB, and BQML model creation is calculated at $250 USD / TiB"
     type: number
     value_format: "$0.000000000"
-    sql: IF(${total_billed_bytes} IS NULL, 0.00,
-                                     ${total_billed_bytes} / POW(2, 40)  *
+    sql: IF(${total_bytes_billed} IS NULL, 0.00,
+                                     ${total_bytes_billed} / POW(2, 40)  *
                                       CASE
                                         WHEN ${query_statement_type} = 'CREATE_MODEL' THEN 250.00
                                         WHEN ${query_statement_type} IN ('DELETE','SELECT','CREATE_TABLE_AS_SELECT','INSERT','MERGE') THEN 5.00
