@@ -36,7 +36,7 @@ dimension: pk {
   dimension: looker_user_id {
     hidden: yes
     type: number
-    sql: CAST(value) AS INT64) ;;
+    sql: CAST(value) AS INT64 ;;
   }
 
   dimension: total_billed_bytes {
