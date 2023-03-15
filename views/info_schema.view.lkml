@@ -15,7 +15,7 @@ view: info_schema {
     `jrdetorre-bq-demo.`.`region-us`.INFORMATION_SCHEMA.JOBS_BY_PROJECT
   CROSS JOIN
     UNNEST(labels)
-      WHERE key='looker-context-user_id');;
+      WHERE key='looker-context-user_id';;
 #    partition_keys: ["timestamp"]
 #    interval_trigger: "10 minutes"
     }
@@ -78,9 +78,3 @@ dimension: pk {
 
 
 }
-
-
-
-
-
-
